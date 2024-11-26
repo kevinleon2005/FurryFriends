@@ -1,127 +1,91 @@
-function validateForm(){
-    let isValid = true;
-    // Limpie errores anteriores
-    clearErrors();
-    // Capture los valores del formulario
-    document.addEventListener('DOMContentLoaded', function () {
-        // Código de validación
-    });
-    
-    // Referencias a los elementos
-    const names = document.getElementById('name').value.trim();
-    const lastname = document.getElementById('lastname').value.trim();
-    const nacimiento = document.getElementById('date_Nac').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const phone = document.getElementById('phone').value.trim();
-    const countrySelect = document.getElementById('country');
-    const citySelect = document.getElementById('city');
-    const termsBtn = document.getElementById('termsBtn');
-    const termsModal = document.getElementById('termsModal');
-    const closeTermsModal = document.getElementById('closeTermsModal');
-    
-    // Validación de datos
+document.getElementById("formulario").addEventListener("submit", function (event) {
+    event.preventDefault(); // Evita el envío del formulario para validación
+
+    // Obtener valores de los campos
+    const name = document.getElementById("name").value.trim();
+    const lastname = document.getElementById("lastname").value.trim();
+    const dateNac = document.getElementById("date_Nac").value;
+    const email = document.getElementById("email").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const address = document.getElementById("address").value.trim();
+    const city = document.getElementById("city").value.trim();
+    const password = document.getElementById("password").value.trim();
+    const confirmPassword = document.getElementById("confirm-password").value.trim();
+    const termsAccepted = document.querySelector("input[name='terms']").checked;
+
+    let isValid = true; // Flag para seguimiento de errores
+    let errorMessage = ""; // Mensaje de error acumulado
+
     // Validar nombre
-    if (names === ''){
-        showError('name', 'El nombre es requerido.');
+    if (name.length < 2) {
         isValid = false;
-    } else if (names.length < 3) {
-        showError('name', 'El nombre debe tener al menos 3 caracteres.');
-        isValid = false;
+        errorMessage += "El nombre debe tener al menos 2 caracteres.\n";
     }
+
     // Validar apellido
-    if (lastname === ''){
-        showError('name', 'El apellido es requerido.');
+    if (lastname.length < 2) {
         isValid = false;
-    } else if (lastname.length < 4) {
-        showError('name', 'El apellido debe tener al menos 4 caracteres.');
-        isValid = false;
+        errorMessage += "El apellido debe tener al menos 2 caracteres.\n";
     }
-    // Validar correo
-    const emailPettern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+,[a-aZ-Z]{2,6}$/;
-    if (!emailPattern.test(email)) {
-        showError('email', 'El correo electrónico no es válido.');
+
+    // Validar fecha de nacimiento
+    if (!dateNac) {
         isValid = false;
+        errorMessage += "Debe ingresar una fecha de nacimiento válida.\n";
     }
-    // Validar teléfono (Formato 123-456-7890)
-    const phonePattern = /^\d{3}-\d{3}-\d{4}$/;
-    if (!phonePattern.test(phone)) {
-        showError('phone', 'El número de teléfono no es válido, debe tener un formato 123-456-7890');
+
+    // Validar email con expresión regular
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
         isValid = false;
+        errorMessage += "Debe ingresar un correo electrónico válido.\n";
     }
-    // Validar fecha de inicio 
-    if (startDate === ''){
-        showError('startDate', 'La fecha de inicio es requerida.');
+
+    // Validar número de teléfono
+    const phoneRegex = /^\+?\d{7,15}$/; // Acepta números con + y de 7 a 15 dígitos
+    if (!phoneRegex.test(phone)) {
         isValid = false;
-    // Si todo es verdadero que muestre el mensaje de éxito y permitir envío
-    if (isValid){
-        document.getElementById('successMessage').textContent = 'Formulario enviado con éxito';
-        document.getElementById('successMessage').style.color = 'green';
+        errorMessage += "Debe ingresar un número de teléfono válido (Ej: +57 300 1234567).\n";
+    }
+
+    // Validar dirección
+    if (address.length < 5) {
+        isValid = false;
+        errorMessage += "La dirección debe tener al menos 5 caracteres.\n";
+    }
+
+    // Validar ciudad
+    if (city.length < 2) {
+        isValid = false;
+        errorMessage += "La ciudad debe tener al menos 2 caracteres.\n";
+    }
+
+    // Validar contraseñas
+    if (password.length < 6) {
+        isValid = false;
+        errorMessage += "La contraseña debe tener al menos 6 caracteres.\n";
+    }
+    if (password !== confirmPassword) {
+        isValid = false;
+        errorMessage += "Las contraseñas no coinciden.\n";
+    }
+
+    // Validar términos y condiciones
+    if (!termsAccepted) {
+        isValid = false;
+        errorMessage += "Debe aceptar los términos y condiciones.\n";
+    }
+
+    // Mostrar resultado
+    const successMessage = document.getElementById("successMessage");
+    if (isValid) {
+        successMessage.textContent = "¡Formulario enviado exitosamente!";
+        successMessage.style.color = "green";
+        this.reset(); // Reinicia el formulario
     } else {
-        document.getElementById('successMessage').textContent = 'Formulario no enviado, revise los errores';
-    } return isValid;
+        successMessage.textContent = errorMessage;
+        successMessage.style.color = "red";
     }
-    
-    
-    // Lista de ciudades por país
-    const citiesByCountry = {
-        Argentina: ["Buenos Aires", "Córdoba", "Rosario"],
-        Bolivia: ["La Paz", "Cochabamba", "Santa Cruz"],
-        Brasil: ["Brasilia", "Río de Janeiro", "Sao Paulo"],
-        Chile: ["Santiago", "Valparaíso", "Concepción"],
-        Colombia: ["Bogotá", "Medellín", "Cali"],
-        Ecuador: ["Quito", "Guayaquil", "Cuenca"],
-        Paraguay: ["Asunción", "Encarnación", "Ciudad del Este"],
-        Perú: ["Lima", "Cusco", "Arequipa"],
-        Uruguay: ["Montevideo", "Punta del Este", "Salto"],
-        Venezuela: ["Caracas", "Maracaibo", "Valencia"]
-    };
-    
-    // Actualizar las ciudades cuando se seleccione un país
-    countrySelect.addEventListener('change', () => {
-        const selectedCountry = countrySelect.value;
-    
-        // Limpiar las opciones anteriores
-        citySelect.innerHTML = '<option value="">Seleccione una ciudad</option>';
-    
-        if (selectedCountry && citiesByCountry[selectedCountry]) {
-            // Agregar nuevas opciones
-            citiesByCountry[selectedCountry].forEach(city => {
-                const option = document.createElement('option');
-                option.value = city;
-                option.textContent = city;
-                citySelect.appendChild(option);
-            });
-        }
-    });
-    
-    // Mostrar el modal de términos y condiciones
-    termsBtn.addEventListener('click', () => {
-        termsModal.style.display = 'flex';
-    });
-    
-    // Cerrar el modal de términos y condiciones
-    closeTermsModal.addEventListener('click', () => {
-        termsModal.style.display = 'none';
-    });    
-}
-
-// Función para mostrar errores
-function showError(filed, message){
-const inputField = document.getElementById(filed);
-const errorDiv = document.getElementById(filed);
-inputField.classList.add('error')
-errorDiv.textContent = message;
-}
-// Limpiar errores
-function clearErrors(){
-const inputField = document.querySelectorAll('.form-group input');
-inputField.forEach(div => {
-    div.textContent = '';
 });
 
-const errorDivs = document.querySelectorAll('form-group .error');
-errorDivs.forEach(div => {
-    div.textContent = '';
-});
-document.getElementById('successMessage').textContent = '';
-}
+
