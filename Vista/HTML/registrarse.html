@@ -26,6 +26,7 @@
   <link href="../CSS/formRegistro.css" rel="stylesheet" />
   <!-- responsive style -->
   <link href="../css/responsive.css" rel="stylesheet" />
+  <!-- <script src="../JS/formRegistro.js"></script> -->
 </head>
 <body>
     <section>
@@ -84,13 +85,13 @@
                 <section>
                     <h2>Información Personal</h2>
                     <label for="first-name">Nombre(s):</label>
-                    <input type="text" id="first-name" name="first-name" placeholder="Ingrese su nombre" required>
+                    <input type="text" id="name" name="first-name" placeholder="Ingrese su nombre" required>
     
                     <label for="last-name">Apellido(s):</label>
-                    <input type="text" id="last-name" name="last-name" placeholder="Ingrese su apellido" required>
+                    <input type="text" id="lastname" name="last-name" placeholder="Ingrese su apellido" required>
     
                     <label for="dob">Fecha de Nacimiento:</label>
-                    <input type="date" id="dob" name="dob" required>
+                    <input type="date" id="date_Nac" name="dob" required>
     
                     <label for="gender">Género:</label>
                     <select id="gender" name="gender">
@@ -146,13 +147,14 @@
     
                 <!-- Botón de registro -->
                 <button type="submit" class="btn-submit">Registrarse</button>
+                <div class="success" id="successMessage"></div>
             </form>
+            <script src="../JS/formRegistro.js" defer></script>
         </div>
     </section>
 
       <!-- footer section -->
     <!-- footer section -->
-    <script src="../JS/formRegistro.js"></script>
 </body>
 <footer id="contacto">
     <p>&copy; 2024 FurryFriends. Todos los derechos reservados.</p>
