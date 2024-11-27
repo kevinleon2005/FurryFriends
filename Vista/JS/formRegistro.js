@@ -17,15 +17,15 @@ document.getElementById("formulario").addEventListener("submit", function (event
     let errorMessage = ""; // Mensaje de error acumulado
 
     // Validar nombre
-    if (name.length < 2) {
+    if (name.length < 3) {
         isValid = false;
-        errorMessage += "El nombre debe tener al menos 2 caracteres.\n";
+        errorMessage += "El nombre debe tener al menos 3 caracteres.\n";
     }
 
     // Validar apellido
-    if (lastname.length < 2) {
+    if (lastname.length < 4) {
         isValid = false;
-        errorMessage += "El apellido debe tener al menos 2 caracteres.\n";
+        errorMessage += "El apellido debe tener al menos 4 caracteres.\n";
     }
 
     // Validar fecha de nacimiento

@@ -26,6 +26,8 @@
   <link href="../CSS/formRegistro.css" rel="stylesheet" />
   <!-- responsive style -->
   <link href="../css/responsive.css" rel="stylesheet" />
+  <!-- <script src="../JS/formRegistro.js"></script> -->
+
 </head>
 <body>
     <section>
@@ -76,11 +78,10 @@
     <!-- end header section -->
 
     <!-- Sección de formulario -->
-    <!-- Sección de formulario -->
-<section class="section-formulario">
+    <section class="section-formulario">
     <div class="register-container">
         <h1>Formulario de Registro</h1>
-        <form action="#" method="POST">
+        <form action="" method="post" id="formulario" novalidate>
             <!-- Información personal -->
             <section>
                 <h2>Información Personal</h2>
@@ -96,21 +97,21 @@
                 <input type="text" id="doc" name="doc" required placeholder="Ingrese el numero de documento">
 
                 <label for="first-name">Nombre(s):</label>
-                <input type="text" id="first-name" name="first-name" placeholder="Ingrese su nombre" required>
+                <input type="text" id="name" name="first-name" placeholder="Ingrese su nombre" required>
 
                 <label for="last-name">Apellido(s):</label>
-                <input type="text" id="last-name" name="last-name" placeholder="Ingrese su apellido" required>
+                <input type="text" id="lastname" name="last-name" placeholder="Ingrese su apellido" required>
 
                 <label for="dob">Fecha de Nacimiento:</label>
-                <input type="date" id="dob" name="dob" required>
+                <input type="date" id="date_Nac" name="dob" required>
 
                 <label for="gender">Género:</label>
-                <select id="gender" name="gender">
+                <select id="gender" name="gender" required>
+                    <option value="">Seleccione un género</option>
                     <option value="male">Masculino</option>
                     <option value="female">Femenino</option>
                     <option value="other">Otro</option>
                 </select>
-
                 <label for="documento">Subir Documento</label>
                 <input type="file" name="Documento" id="Documento" multiple accept="imagen/*" accept="PDF" required>
                 <p>
@@ -127,6 +128,7 @@
                 <h2>Información de Contacto</h2>
                 <label for="email">Correo Electrónico:</label>
                 <input type="email" id="email" name="email" placeholder="ejemplo@correo.com" required>
+                <small class="error" id="error-name"></small>
 
                 <label for="phone">Número de Teléfono:</label>
                 <input type="tel" id="phone" name="phone" placeholder="Ej: +57 300 1234567" required>
@@ -136,7 +138,7 @@
 
                 <label for="country">País:</label>
                 <select id="country" name="country" required>
-                    <!-- Opciones de país -->
+                    <option value="">Seleccione un país</option>
                     <option value="argentina">Argentina</option>
                     <option value="colombia">Colombia</option>
                     <option value="mexico">México</option>
@@ -168,11 +170,11 @@
 
             <!-- Botón de registro -->
             <button type="submit" class="btn-submit">Registrarse</button>
+            <div class="success" id="successMessage"></div>
         </form>
     </div>
     <script src="../JS/formRegistro.js"></script>
 </section>
-
 </body>
 <footer id="contacto">
     <p>&copy; 2024 FurryFriends. Todos los derechos reservados.</p>
