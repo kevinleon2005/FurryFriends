@@ -23,7 +23,7 @@
         <!-- fonts style -->
         <link href="https://fonts.googleapis.com/css?family=Dosis:400,500|Poppins:400,700&display=swap" rel="stylesheet">
         <!-- Custom styles for this template -->
-        <link href="../CSS/dashboard.css" rel="stylesheet" />
+        <link href="../CSS/dashboard_propietario.css" rel="stylesheet" />
         <!-- responsive style -->
         <link href="../css/responsive.css" rel="stylesheet" />
       </head>
@@ -57,9 +57,6 @@
                       <a class="nav-link" href="./productos.html">Productos </a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="./dashboard.html">Dashboard </a>
-                    </li>
-                    <li class="nav-item">
                       <a class="nav-link" href="./inicio_sesión.html"> Iniciar sesión </a>
                     </li>
                     
@@ -79,73 +76,68 @@
         </header>
       </div>    
         <!-- end header section -->
+         
     <div class="dashboard-container">
         <!-- Barra de Navegación -->
         <nav class="sidebar">
-            <h2>FurryFriends Dashboard</h2>
+            <h2>FurryFriends</h2>
             <ul>
                 <li><a href="#overview">Inicio</a></li>
-                <li><a href="#services">Servicios</a></li>
-                <li><a href="#pets">Mascotas</a></li>
-                <li><a href="#walks">Paseos</a></li>
-                <li><a href="#stats">Estadísticas</a></li>
-                <li><a href="#settings">Configuraciones</a></li>
+                <li><a href="#services">Mis mascotas</a></li>
+                <li><a href="#pets">Historial de servicios</a></li>
+                <li><a href="#walks">Productos</a></li>
+                <li><a href="#stats">Mi cuenta</a></li>
             </ul>
         </nav>
-
         <!-- Contenido Principal -->
         <main class="main-content">
             <header>
-                <h1>Bienvenido al Dashboard</h1>
+                <h1>Bienvenido FurryFriends</h1>
                 <p>Gestión de paseos y cuidado de mascotas.</p>
             </header>
 
             <!-- Sección de Resumen -->
             <section id="overview" class="card-grid">
                 <div class="card">
-                    <h3>Mascotas Registradas</h3>
-                    <p>12</p>
-                    <div class="progress-bar">
-                        <div class="progress" style="width: 75%;"></div>
-                    </div>
-                </div>
-                <div class="card">
-                    <h3>Servicios Activos</h3>
-                    <p>3</p>
-                    <div class="progress-bar">
-                        <div class="progress" style="width: 75%;"></div>
-                    </div>
-                </div>
-                <div class="card">
-                    <h3>Paseos Programados</h3>
-                    <p>5</p>
-                    <div class="progress-bar">
-                        <div class="progress" style="width: 75%;"></div>
-                    </div>
-                </div>
-                <div class="card">
-                    <h3>Ganancias Mensuales</h3>
-                    <p>$2.000.000 COP</p>
-                    <div class="progress-bar">
-                        <div class="progress" style="width: 75%;"></div>
-                    </div>
+                    <h2>Estado de Servicios</h2>
+                    <p><strong>Próximo paseo:</strong> Sábado 5 de diciembre, 10:00 AM</p>
+                    <p><strong>Progreso actual:</strong> Paseador en camino</p>
+                    <button class="map">Ver reservara en tiempo real</button>
                 </div>
             </section>
-
-            <!-- Sección de Servicios -->
-            <section id="services">
-                <h2>Servicios Disponibles</h2>
+            <section class="card">
+                <h2>Resumen de Mi Mascota</h2>
+                <img src="../IMG/mascotas/Dogo-Argentino.jpeg" alt="Mascota" class="pet-img">
+                <br>
+                <p><strong>Nombre:</strong> Coco</p>
+                <p><strong>Especie:</strong> Perro(Canino)</p>
+                <p><strong>Raza:</strong> Dogo Argentino</p>
+                <p><strong>Edad:</strong> 1 año y medio</p>
+                <p><strong>Último servicio:</strong> Paseo el 2 de diciembre</p>
+            </section>
+            <section class="card">
+                <h2>Productos Recomendados</h2>
                 <ul>
-                    <li>Paseos personalizados</li>
-                    <li>Guardería</li>
-                    <li>Atención personalizada</li>
+                  <li class="listas">Chaleco para perro <button class="reservas">Agregar al carrito</button></li>
+                  <li class="listas">Juguete interactivo <button class="reservas">Agregar al carrito</button></li>
+                  <li class="listas">Snack saludable <button class="reservas">Agregar al carrito</button></li>
                 </ul>
             </section>
 
-            <!-- Gráfico de Estadísticas -->
-            <section id="stats">
-                <h2>Estadísticas</h2>
-                <canvas id="statsChart"></canvas>
+            <!-- Sección de Servicios -->
+            <section class="card">
+                <h2>Servicios Disponibles</h2>
+                <ul>
+                    <a href="">
+                        <li class="listas">Paseos personalizados</li>
+                    </a>
+                    <a href="">
+                        <li class="listas">Guardería</li>
+                    </a>
+                    <a href="">
+                        <li class="listas">Atención personalizada</li>
+                    </a>
+                </ul>
             </section>
         </main>
     </div>
