@@ -1,0 +1,354 @@
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #0c0c0c;
+  justify-content:center;
+  align-items: center;
+  height: 100vh;
+}
+
+.layout_padding {
+  padding: 75px 0;
+}
+
+.layout_padding2 {
+  padding: 45px 0;
+}
+
+.layout_padding2-top {
+  padding-top: 45px;
+}
+
+.layout_padding2-bottom {
+  padding-bottom: 45px;
+}
+
+.layout_padding-top {
+  padding-top: 75px;
+}
+
+.layout_padding-bottom {
+  padding-bottom: 75px;
+}
+
+.custom_heading {
+  color: #030404;
+}
+
+.custom_heading span {
+  color: #21d7ff;
+}
+
+/*header section*/
+.header_section {
+  background-color: #6f42c1;
+  padding: 0;
+  margin: 0;
+}
+.header_section .container-fluid {
+  padding-right: 25px;
+  padding-left: 25px;
+}
+.header_section .nav_container {
+  margin: 0 auto;
+}
+.header_section .quote_btn-container a {
+  color: #C0C0C0;
+  text-transform: uppercase;
+}
+.custom_nav-container.navbar-expand-lg .navbar-nav .nav-link {
+  padding: 10px 30px;
+  color: #C0C0C0;
+  text-align: center;
+  text-transform: uppercase;
+}
+a,
+a:hover,
+a:focus {
+  text-decoration: none;
+}
+a:hover,
+a:focus {
+  color: initial;
+}
+.btn,
+.btn:focus {
+  outline: none !important;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+.navbar {
+  background-color: #6f42c1; /* Color de fondo */
+  padding: 8px 20px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+  height: 60px; /* Altura fija */
+  display: flex;
+  align-items: center;
+}
+.navbar-brand,
+.navbar-brand:hover {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 24px;
+  color: #C0C0C0;
+}
+.spanFurry{
+  color: #C0C0C0;
+}
+.navbar-brand {
+  display: flex;
+  align-items: center; /* Alinear logo y texto */
+  gap: 10px; /* Espaciado entre el logo y el texto */
+  text-decoration: none; /* Sin subrayado */
+}
+.navbar-brand img{
+  height: 0px; /* Tamaño ajustado */
+  width: auto; /* Mantener proporción */
+  display: block; /* Evitar espacios extra */
+}
+.navbar-brand .span {
+  font-size: 20px; /* Tamaño del texto */
+  font-weight: bold; /* Negrita */
+  color: #333; /* Color del texto */
+}
+/* Estilo del submenú */
+.nav {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+    }
+
+    .nav-item {
+        position: relative;
+    }
+
+    .nav-item > a {
+        text-decoration: none;
+        color: white;
+        padding: 10px 20px;
+        display: block;
+    }
+
+    .nav-item:hover > a {
+        background-color: #602bc2;
+    }
+
+    /* Estilos del submenú */
+    .submenu {
+        display: none;
+        position: absolute;
+        background-color: #6f42c1;
+        list-style: none;
+        top: 100%;
+        left: 0;
+        min-width: 150px;
+        padding: 0;
+        border-radius: 5px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    .submenu li {
+        width: 100%;
+    }
+
+    .submenu a {
+        padding: 10px;
+        display: block;
+        color: white;
+        text-decoration: none;
+    }
+
+    .submenu a:hover {
+        background-color: #602bc2;
+    }
+
+    /* Mostrar el submenú cuando el usuario pasa el mouse */
+    .nav-item:hover .submenu {
+        display: block;
+    }
+
+/* Estilos generales para la navegación */
+.navbar-nav {
+  display: flex;
+  gap: 15px; /* Espaciado entre elementos */
+}
+
+.navbar-nav .nav-item {
+  list-style: none;
+}
+
+.navbar-nav .nav-link {
+  font-size: 16px;
+  color: #333;
+  padding: 8px 12px;
+  transition: color 0.3s ease-in-out;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #007bff; /* Cambio de color al pasar el cursor */
+}
+
+/* Estilos para el botón hamburguesa */
+.navbar-toggler {
+  border: none;
+  background: transparent;
+}
+
+.navbar-toggler:focus {
+  outline: none;
+  box-shadow: none;
+}
+.custom_nav-container {
+  z-index: 99999;
+  padding: 5px 0;
+}
+.custom_nav-container .navbar-toggler {
+  outline: none;
+}
+.custom_nav-container .navbar-toggler .navbar-toggler-icon {
+  background-image: url(../images/menu.png);
+  background-size: 55px;
+}
+/*end header section*/
+
+.hero_area{
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(../../images/IMG/Img_inicio/FondoInicio.jpeg);
+  background-attachment: fixed;
+}
+/* Botones */
+/* Botón inicio */
+#boton-inicio{
+  padding: 10px 20px;
+  background-color: #f15a24;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+/* Fin botón inicio */
+/* Estilos de botones */
+.container-boton{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.boton-volver{
+  padding: 10px 20px;
+  background-color: #6f42c1;
+  color: #C0C0C0;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+.boton-volver:hover{
+  background-color: #602bc2;
+  transform: scale(1.1);
+}
+/* Fin de efectos de botón */
+
+/* Títulos */
+.Titulos_centrados{
+  text-align: center;
+  color: #0c0c0c;
+  font-weight: 30px;
+  padding: 5px;
+}
+.Titulos_left{
+  text-align: left;
+  color: #030404;
+  padding: 10px;
+}
+/* Fin de Títulos */
+.h2_centrados{
+  text-align: center;
+}
+/* Párrafos */
+.Párrafos{
+  text-align: center;
+}
+/* Fin párrafos */
+.container {
+  max-width: 500px;
+  background: #ffffff4f;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.section {
+  margin-bottom: 20px;
+}
+
+.section h2 {
+  font-size: bold;
+  color: #030404;
+  margin-bottom: 10px;
+}
+
+.section p {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+.contact{
+text-align: center;
+}
+.contact ul {
+  list-style: none;
+}
+
+.contact ul li {
+  margin: 5px 0;
+}
+
+
+/*# sourceMappingURL=style.css.map */
+
+/* Características del botón submit (Enviar) */
+input[type="submit"]{
+  background-color: #008cba;
+  color:white;
+  border: none;
+  padding: 5px 12px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+input[type="submit"]:hover{
+  background-color: #007b8f;
+}
+
+/* Estilos para el footer */
+/* Estilos para el footer */
+footer {
+  background-color: #6f42c1;
+  color: #fafcfd;
+  height: 130px;
+  padding: 6px;
+  text-align: center;
+}
+footer p { /* Reduce el margen entre párrafos */
+  line-height: 1.2; /* Ajusta el espaciado entre líneas */
+}
+footer a {
+  color: #2980b9;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+/* Responsive */
+@media (max-width: 768px) {
+  .dashboard{
+      flex-direction: column;
+  }
+  .sidebar{
+      width: 100%;
+      height: auto;
+  }
+  .main-content{
+      padding: 20px;
+  }
+  }
