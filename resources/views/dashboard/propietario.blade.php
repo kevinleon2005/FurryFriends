@@ -8,7 +8,7 @@
             <ul>
               <h1>Bienvenido, Propietario</h1>
               <li><a href="{{ route('inicio') }}">Inicio</a></li>
-              <li><a href="#services">Mis mascotas</a></li>
+              <li><a href="{{ route('mascotas.index') }}">Mis mascotas</a></li>
               <li><a href="#pets">Historial de servicios</a></li>
               <li><a href="#walks">Productos</a></li>
               <li><a href="#stats">Mi cuenta</a></li>

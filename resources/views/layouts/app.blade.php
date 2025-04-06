@@ -77,6 +77,7 @@
                 @elseif (Auth::user()->role === 'propietario')
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('dashboardPro') }}">Mi Dashboard</a>
+                        <a class="nav-link" href="{{ route('mascotas.create') }}">Registrar mi Mascota</a>
                     </li>
                 @elseif (Auth::user()->role === 'paseador')
                     <li class="nav-item">
@@ -88,7 +89,11 @@
                     </li>
                 @endif
                 <li class="nav-item">
-    
+                    <!-- <form action="{{ route('logout') }}" method="POST">
+                        @csrf
+                        <a href=""></a>
+                        <button type="submit" class="dropdown-item-static">Cerrar Sesión</button>
+                    </form> -->
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('logout') }}">Cerrar Sesión</a>
                     </li>
@@ -112,7 +117,4 @@
     <script type="text/javascript" src="{{ asset('js/bootstrap.js') }}"></script>
 </body>
 </html>
-
-
-
 @yield('footer')

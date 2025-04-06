@@ -49,8 +49,8 @@
                                     {{ $user->numero_documento }}
                                 </div>
                                 <div class="form-group mb-2 mb20">
-                                    <strong>Rol:</strong>
-                                    {{ $user->rol }}
+                                    <strong>Role:</strong>
+                                    {{ $user->role }}
                                 </div>
                                 <div class="form-group mb-2 mb20">
                                     <strong>Direccion:</strong>

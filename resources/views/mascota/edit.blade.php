@@ -1,7 +1,7 @@
 @extends('layouts.app')
-
+<link href="{{ asset('css/formularios/formRegistro.css') }}" rel="stylesheet" />
 @section('template_title')
-    {{ __('Update') }} User
+    {{ __('Update') }} Mascota
 @endsection
 
 @section('content')
@@ -11,13 +11,15 @@
 
                 <div class="card card-default">
                     <div class="card-header">
-                        <span class="card-title">{{ __('Update') }} User</span>
+                        <span class="card-title">{{ __('Update') }} Mascota</span>
                     </div>
                     <div class="card-body bg-white">
-                        <form method="POST" action="{{ route('users.update', $user->id) }}"  role="form" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('mascotas.update', $mascota->id) }}"  role="form" enctype="multipart/form-data">
                             {{ method_field('PATCH') }}
                             @csrf
-                            
+
+                            @include('auth.registroMascotas')
+
                         </form>
                     </div>
                 </div>

@@ -37,9 +37,9 @@
             {!! $errors->first('numero_documento', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
         </div>
         <div class="form-group mb-2 mb20">
-            <label for="rol" class="form-label">{{ __('Rol') }}</label>
-            <input type="text" name="rol" class="form-control @error('rol') is-invalid @enderror" value="{{ old('rol', $user?->rol) }}" id="rol" placeholder="Rol">
-            {!! $errors->first('rol', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
+            <label for="role" class="form-label">{{ __('Role') }}</label>
+            <input type="text" name="role" class="form-control @error('role') is-invalid @enderror" value="{{ old('role', $user?->role) }}" id="role" placeholder="Role">
+            {!! $errors->first('role', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
         </div>
         <div class="form-group mb-2 mb20">
             <label for="direccion" class="form-label">{{ __('Direccion') }}</label>

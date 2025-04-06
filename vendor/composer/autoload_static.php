@@ -650,6 +650,7 @@ class ComposerStaticInitb32748dd69142edec3be55ab7f4a7aef
         'App\\Http\\Controllers\\DashboardProController' => __DIR__ . '/../..' . '/app/Http/Controllers/DashboardProController.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
         'App\\Http\\Controllers\\InfoController' => __DIR__ . '/../..' . '/app/Http/Controllers/InfoController.php',
+        'App\\Http\\Controllers\\MascotasController' => __DIR__ . '/../..' . '/app/Http/Controllers/MascotasController.php',
         'App\\Http\\Controllers\\PaseadorController' => __DIR__ . '/../..' . '/app/Http/Controllers/PaseadorController.php',
         'App\\Http\\Controllers\\ProductoController' => __DIR__ . '/../..' . '/app/Http/Controllers/ProductoController.php',
         'App\\Http\\Controllers\\ProductsController' => __DIR__ . '/../..' . '/app/Http/Controllers/ProductsController.php',

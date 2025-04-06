@@ -9,15 +9,10 @@
                 <li><a href="{{ route('inicio') }}">Inicio</a></li>
                 <li><a href="{{ route('user') }}">Usuarios</a></li>
                 <li><a href="{{ route('producto') }}">Productos</a></li>
-                <li><a href="#">Solicitudes</a></li>
-                <li><a href="#">Usuarios</a></li>
+                <li><a href="{{ route('admin.mascotas.index') }}">Info Mascotas</a></li>
+                <li><a href="#">Solicitudes de servicios</a></li>
                 <li><a href="#">Reportes</a></li>
                 <li><a href="#">Configuración</a></li>
-                <li>
-                <form action="{{ route('logout') }}" method="POST">
-                    @csrf
-                    <button type="submit">Cerrar sesión</button>
-                </form>
                 </li>  
             </ul>
           </nav>
@@ -115,7 +110,7 @@
                   <canvas id="statsChart"></canvas>
               </section>
           </main>
-      </div>
+</div>
 @endsection
 @section('footer')
 <footer id="contacto">

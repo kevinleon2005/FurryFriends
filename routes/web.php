@@ -18,6 +18,8 @@ use App\Http\Controllers\PropietarioController;
 use App\Http\Controllers\PaseadorController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\Auth\GoogleController;
+use App\Http\Controllers\MascotaController;
+use App\Http\Controllers\MascotasController;
 
 Route::get('/', function () {return view('home.index');})->name('home');
 Route::get('/inicio/FurryFriendsPages.index', [HomeController::class, 'index'])->name('inicio');
@@ -49,7 +51,6 @@ Route::get('/producto', [ProductoController::class, 'index'])->name('producto');
 Route::get('/agendamientos/usuario/{userId}/rango', [AgendamientoController::class, 'serviciosPorUsuarioYRango'])->name('agendamientos.usuario.rango');
 Route::get('/productos/filtrar', [ProductsController::class, 'filtrarProductos'])->name('productos.filtrar');
 
-Route::resource('productos', ProductoController::class);
 
 // Rutas inicio de sesión
 Route::get('/login', [LoginController::class, 'index'])->name('login');
@@ -61,3 +62,13 @@ Route::get('auth/google/callback', [GoogleController::class, 'handleGoogleCallba
 // Route::get('/login/google', [SocialiteController::class, 'redirectToGoogle'])->name('login.google');
 // Route::get('/login/google/callback', [SocialiteController::class, 'handleGoogleCallback']);
 // Fin de rutasd de inicio de sesión
+
+// Rutas para el regsitro de mascotas 
+Route::resource('mascotas', MascotaController::class);
+// Rutas de admin para mascotas
+Route::get('/admin/mascotas', [MascotaController::class, 'adminIndex'])->name('admin.mascotas.index');
+Route::get('/admin/mascotas/{id}', [MascotaController::class, 'adminShow'])->name('admin.mascotas.show');
+// Rutas de propietario para mascotas
+//Fin rutas para el registro de mascotas
+
+//Rutas para las crud de mascotas en admin

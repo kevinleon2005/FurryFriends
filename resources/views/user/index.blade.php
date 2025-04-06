@@ -21,11 +21,6 @@
                                   {{ __('Create New') }}
                                 </a>
                               </div>
-                              <div class="float-right">
-                                <a href="{{ route('dashboardAdm') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
-                                  {{ __('Volver') }}
-                                </a>
-                              </div>
                         </div>
                     </div>
                     @if ($message = Session::get('success'))
@@ -48,7 +43,7 @@
 									<th >Email</th>
 									<th >Tipo Documento</th>
 									<th >Numero Documento</th>
-									<th >Rol</th>
+									<th >Role</th>
 									<th >Direccion</th>
 									<th >Foto Perfil</th>
 									<th >Experiencia</th>
@@ -69,7 +64,7 @@
 										<td >{{ $user->email }}</td>
 										<td >{{ $user->tipo_documento }}</td>
 										<td >{{ $user->numero_documento }}</td>
-										<td >{{ $user->rol }}</td>
+										<td >{{ $user->role }}</td>
 										<td >{{ $user->direccion }}</td>
 										<td >{{ $user->foto_perfil }}</td>
 										<td >{{ $user->experiencia }}</td>

@@ -4,31 +4,43 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * Class Mascota
+ *
+ * @property $id
+ * @property $user_id
+ * @property $nombre
+ * @property $edad
+ * @property $raza
+ * @property $sexo
+ * @property $color
+ * @property $info_medica
+ * @property $created_at
+ * @property $updated_at
+ *
+ * @property User $user
+ * @package App
+ * @mixin \Illuminate\Database\Eloquent\Builder
+ */
 class Mascota extends Model
 {
-    public static function boot(){
-        parent::boot();
     
-        static::creating(function ($mascota) {
-            $ultimaMascota = Mascota::latest('id')->first();
-            $numero = $ultimaMascota ? intval(substr($ultimaMascota->id, 3)) + 1 : 1;
-            $mascota->id = 'MAS' . str_pad($numero, 6, '0', STR_PAD_LEFT);
-        });
-    
-    static::deleted(function ($mascota) {
-        self::reordenarIDs();
-    });
-    }
-    // Método para reordenar los IDs después de eliminar un registro
-    public static function reordenarIDs(){
-        $mascotas = Mascota::orderBy('id')->get();
-        $contador = 1;
+    protected $perPage = 20;
 
-        foreach ($mascotas as $mascota) {
-            $nuevoID = 'PAS' . str_pad($contador, 6, '0', STR_PAD_LEFT);
-            $mascota->id = $nuevoID;
-            $mascota->saveQuietly(); // Evita activar eventos de actualización
-            $contador++;
-        }
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
+    protected $fillable = ['user_id', 'nombre', 'edad', 'raza', 'sexo', 'color', 'info_medica'];
+
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function user()
+    {
+        return $this->belongsTo(\App\Models\User::class, 'user_id', 'id');
     }
+    
 }
