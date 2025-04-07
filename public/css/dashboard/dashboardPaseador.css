@@ -225,7 +225,7 @@ a:focus {
 
 /* Barra lateral */
 .sidebar {
-  background-color: #f38259;
+  background-color: #6f42c1;
   color: #fafcfd;
   width: 250px;
   padding: 20px;
@@ -267,6 +267,8 @@ a:focus {
 }
 
 .schedule, .map, .finances {
+  flex: none;
+  width: 100%;
   background-color: white;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -318,4 +320,48 @@ text-decoration: none;
 
 footer a:hover {
 text-decoration: underline;
+}
+
+/* Estilo para la sección de bienvenida */
+.welcome {
+  background-color: #f8f9fa; /* Fondo claro */
+  padding: 20px;
+  margin-bottom: 20px; /* Espaciado inferior */
+  border-radius: 8px; /* Bordes redondeados */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+  text-align: center; /* Centrar el texto */
+}
+
+.welcome h1 {
+  font-size: 24px;
+  color: #6f42c1; /* Color principal */
+  margin-bottom: 10px;
+}
+
+.welcome p {
+  font-size: 16px;
+  color: #333;
+}
+
+/* Ajustes para la sección de paseos */
+.schedule {
+  width: 100%; /* Ocupa todo el ancho disponible */
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  padding: 20px;
+}
+
+/* Ajustes generales para el contenedor principal */
+.main-content {
+  display: flex;
+  flex-direction: column; /* Asegura que las secciones estén en columna */
+  gap: 20px; /* Espaciado entre secciones */
+  padding: 20px;
+  width: 100%; /* Asegura que ocupe todo el ancho */
+}
+
+.schedule, .map, .finances {
+  flex: 1; /* Asegura que las secciones sean proporcionales */
 }
