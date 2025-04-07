@@ -7,7 +7,7 @@ use App\Http\Controllers\DashboardPasController;
 use App\Http\Controllers\DashboardProController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\InfoController;
-use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\ServiciosController;
 use App\Http\Controllers\TerminosController;
 use App\Http\Controllers\UserController;
@@ -16,7 +16,6 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AgendamientoController;
 use App\Http\Controllers\PropietarioController;
 use App\Http\Controllers\PaseadorController;
-use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\Auth\GoogleController;
 use App\Http\Controllers\MascotaController;
 use App\Http\Controllers\MascotasController;
@@ -24,7 +23,7 @@ use App\Http\Controllers\MascotasController;
 Route::get('/', function () {return view('home.index');})->name('home');
 Route::get('/inicio/FurryFriendsPages.index', [HomeController::class, 'index'])->name('inicio');
 Route::get('/info/nosotros', [InfoController::class, 'nosotros'])->name('nosotros');
-Route::get('/products/productos', [ProductsController::class, 'productos'])->name('productos');
+Route::get('/products/productos', [ProductoController::class, 'productos'])->name('productos');
 Route::get('/services/servicios', [ServiciosController::class, 'servicios'])->name('servicios');
 Route::get('/auth/iniciarSesion', [LoginController::class, 'index'])->name('login');
 Route::post('/auth/iniciarSesion', [LoginController::class, 'index'])->name('login');
@@ -49,7 +48,7 @@ Route::get('/producto', [ProductoController::class, 'index'])->name('productos.i
 
 // Consultas
 Route::get('/agendamientos/usuario/{userId}/rango', [AgendamientoController::class, 'serviciosPorUsuarioYRango'])->name('agendamientos.usuario.rango');
-Route::get('/productos/filtrar', [ProductsController::class, 'filtrarProductos'])->name('productos.filtrar');
+Route::get('/productos/filtrar', [ProductoController::class, 'filtrarProductos'])->name('productos.filtrar');
 
 
 // Rutas inicio de sesión
