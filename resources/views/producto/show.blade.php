@@ -45,5 +45,14 @@
                 </div>
             </div>
         </div>
+        <a href="{{ route('productos.index') }}" class="btn btn-secondary mt-3">Volver</a>
     </section>
+@endsection
+@section('footer')
+    <footer id="contacto">
+        <p>&copy; 2024 FurryFriends. Todos los derechos reservados.</p>
+        <p>¿Tienes preguntas?</p>
+        <a href="hernandezkaleth647@gmail.com">Contáctanos</a> o llama al +57 3203700529
+        <p>Dirección: Calle 74 A Sur #92-21, Ciudad de Bogotá</p>
+    </footer>
 @endsection

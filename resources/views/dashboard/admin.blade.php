@@ -8,7 +8,7 @@
               <ul>
                 <li><a href="{{ route('inicio') }}">Inicio</a></li>
                 <li><a href="{{ route('user') }}">Usuarios</a></li>
-                <li><a href="{{ route('producto') }}">Productos</a></li>
+                <li><a href="{{ route('productos.index') }}">Productos</a></li>
                 <li><a href="{{ route('admin.mascotas.index') }}">Info Mascotas</a></li>
                 <li><a href="#">Solicitudes de servicios</a></li>
                 <li><a href="#">Reportes</a></li>

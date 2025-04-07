@@ -1,3 +1,5 @@
+@extends ('layouts.app')
+@section('content')
 <div class="row padding-1 p-1">
     <div class="col-md-12">
         
@@ -67,3 +69,12 @@
         <button type="submit" class="btn btn-primary">{{ __('Submit') }}</button>
     </div>
 </div>
+@endsection
+@section('footer')
+    <footer id="contacto">
+        <p>&copy; 2024 FurryFriends. Todos los derechos reservados.</p>
+        <p>¿Tienes preguntas?</p>
+        <a href="hernandezkaleth647@gmail.com">Contáctanos</a> o llama al +57 3203700529
+        <p>Dirección: Calle 74 A Sur #92-21, Ciudad de Bogotá</p>
+    </footer>
+@endsection

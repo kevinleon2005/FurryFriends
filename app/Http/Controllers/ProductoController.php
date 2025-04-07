@@ -13,42 +13,50 @@ use Illuminate\View\View;
 class ProductoController extends Controller
 {
     public function productos()
-        {
-            return view('products.productos'); // Crea la vista products/productos.blade.php
-        }
-        public function filtrarProductos(Request $request)
-{
-    $validator = Validator::make($request->all(), [
-        'precio_minimo' => 'required|numeric|min:0',
-        'precio_maximo' => 'required|numeric|gt:precio_minimo',
-        'marca' => 'nullable|string|max:255',
-        'perPage' => 'integer|min:1|max:100',
-    ]);
-
-    if ($validator->fails()) {
-        return redirect()->back()->withErrors($validator)->withInput();
+    {
+        return view('products.productos');
     }
 
-    $precioMinimo = $request->input('precio_minimo');
-    $precioMaximo = $request->input('precio_maximo');
-    $marca = $request->input('marca');
-    $perPage = $request->input('perPage', 10);
+    public function filtrarProductos(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'precio_minimo' => 'required|numeric|min:0',
+            'precio_maximo' => 'required|numeric|gt:precio_minimo',
+            'marca' => 'nullable|string|max:255',
+            'perPage' => 'integer|min:1|max:100',
+        ]);
 
-    $productos = Producto::where('precio', '>=', $precioMinimo)
-        ->where('precio', '<=', $precioMaximo)
-        ->when($marca, function ($query) use ($marca) {
-            return $query->where('marca', $marca);
-        })
-        ->paginate($perPage);
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
 
-    return view('productos.filtrados', compact('productos', 'precioMinimo', 'precioMaximo', 'marca'));
-}
+        $precioMinimo = $request->input('precio_minimo');
+        $precioMaximo = $request->input('precio_maximo');
+        $marca = $request->input('marca');
+        $perPage = $request->input('perPage', 10);
+
+        $productos = Producto::where('precio', '>=', $precioMinimo)
+            ->where('precio', '<=', $precioMaximo)
+            ->when($marca, function ($query) use ($marca) {
+                return $query->where('marca', $marca);
+            })
+            ->paginate($perPage);
+
+        return view('productos.filtrados', compact('productos', 'precioMinimo', 'precioMaximo', 'marca'));
+    }
+
     /**
      * Display a listing of the resource.
      */
     public function index(Request $request): View
-    {
-        $productos = Producto::paginate();
+    {   
+        $search = $request->input('search');
+
+        $productos = Producto::when($search, function ($query, $search) {
+            return $query->where('nombre', 'like', "%{$search}%")
+                        ->orWhere('descripcion', 'like', "%{$search}%")
+                        ->orWhere('precio', 'like', "%{$search}%");
+                })->paginate(10);
 
         return view('producto.index', compact('productos'))
             ->with('i', ($request->input('page', 1) - 1) * $productos->perPage());
@@ -60,7 +68,6 @@ class ProductoController extends Controller
     public function create(): View
     {
         $producto = new Producto();
-
         return view('producto.create', compact('producto'));
     }
 
@@ -81,7 +88,6 @@ class ProductoController extends Controller
     public function show($id): View
     {
         $producto = Producto::find($id);
-
         return view('producto.show', compact('producto'));
     }
 
@@ -91,7 +97,6 @@ class ProductoController extends Controller
     public function edit($id): View
     {
         $producto = Producto::find($id);
-
         return view('producto.edit', compact('producto'));
     }
 
@@ -101,7 +106,6 @@ class ProductoController extends Controller
     public function update(ProductoRequest $request, Producto $producto): RedirectResponse
     {
         $producto->update($request->validated());
-
         return Redirect::route('productos.index')
             ->with('success', 'Producto updated successfully');
     }
@@ -109,7 +113,6 @@ class ProductoController extends Controller
     public function destroy($id): RedirectResponse
     {
         Producto::find($id)->delete();
-
         return Redirect::route('productos.index')
             ->with('success', 'Producto deleted successfully');
     }

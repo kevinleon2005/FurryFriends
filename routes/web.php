@@ -45,7 +45,7 @@ Route::resource('users', UserController::class);
 Route::resource('users', UserController::class);
 Route::get('/user', [UserController::class, 'index'])->name('user');
 Route::resource('productos', ProductoController::class);
-Route::get('/producto', [ProductoController::class, 'index'])->name('producto');
+Route::get('/producto', [ProductoController::class, 'index'])->name('productos.index');
 
 // Consultas
 Route::get('/agendamientos/usuario/{userId}/rango', [AgendamientoController::class, 'serviciosPorUsuarioYRango'])->name('agendamientos.usuario.rango');

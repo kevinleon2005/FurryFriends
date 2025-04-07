@@ -68,11 +68,17 @@ class UserController extends Controller
             return redirect()->route('inicio')->with('success', 'Registro exitoso.');
         }
         public function index(Request $request): View
-        {
-            $users = User::paginate();
+        {   
+        $search = $request->input('search');
+
+        $users = User::when($search, function ($query, $search) {
+            return $query->where('nombre', 'like', "%{$search}%")
+                     ->orWhere('apellido', 'like', "%{$search}%")
+                     ->orWhere('email', 'like', "%{$search}%");
+                })->paginate(10);
 
             return view('user.index', compact('users'))
-                ->with('i', ($request->input('page', 1) - 1) * $users->perPage());
+            ->with('i', ($request->input('page', 1) - 1) * $users->perPage());
         }
         public function create(): View
         {

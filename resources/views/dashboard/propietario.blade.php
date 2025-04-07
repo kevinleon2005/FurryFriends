@@ -1,5 +1,5 @@
 @extends('layouts.app')
-<link href="{{ asset('css/dashboard/dashboardPaseador.css') }}" rel="stylesheet" />
+<link href="{{ asset('css/dashboard/dashboardPropietario.css') }}" rel="stylesheet" />
 @section('content')
 <div class="dashboard-container">
         <!-- Barra de Navegación -->
@@ -12,10 +12,6 @@
               <li><a href="#pets">Historial de servicios</a></li>
               <li><a href="#walks">Productos</a></li>
               <li><a href="#stats">Mi cuenta</a></li>
-              <form action="{{ route('logout') }}" method="POST">
-                  @csrf
-                  <button type="submit">Cerrar sesión</button>
-              </form>
             </ul>
         </nav>
         <!-- Contenido Principal -->

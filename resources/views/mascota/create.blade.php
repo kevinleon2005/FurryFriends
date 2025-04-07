@@ -3,7 +3,6 @@
 @section('template_title')
     {{ __('Create') }} Mascota
 @endsection
-
 @section('content')
     <section class="content container-fluid">
         <div class="row">
