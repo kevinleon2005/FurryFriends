@@ -41,6 +41,7 @@
                     </div>
                 </div>
                 <!-- Botón de Inicio de Sesión -->
+                <br>
                 <div>
                     <div class="">
                         <button type="submit" class="btn btn-primary">
@@ -57,12 +58,12 @@
             </form>
                 
             <!-- Separador -->
-            <div class="separator">
+            <!-- <div class="separator">
                 <span>o</span>
             </div>
-            <br>
+            <br> -->
             <!-- Botones de Inicio con Google, Apple y Código QR -->
-            <div class="social-login">
+            <!-- <div class="social-login">
                 <a href="{{ route('login.google') }}">
                     <button class="btn-google">
                         <img src="{{ asset('images/IMG/iconos/Google.svg') }}" alt="Google">
@@ -77,7 +78,7 @@
                     <img src="{{ asset('images/IMG/iconos/codeQR.svg') }}" alt="Código QR">
                     Iniciar con Código QR
                 </button>
-            </div>
+            </div> -->
         </div>
     </div>
     <!-- Modal para el código QR -->
