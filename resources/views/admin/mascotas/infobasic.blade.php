@@ -3,11 +3,6 @@
 <main style="min-height: 100vh;">
 <div class="container mt-5">
     <h2>Información Básica de Mascotas</h2>
-    <div class="float-right">
-        <a href="{{ route('mascotas.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
-            {{ __('Registrar nueva mascota') }}
-        </a>
-    </div>
     <table class="table table-bordered" style="background-color: rgba(255, 255, 255, 0.8); border-collapse: collapse;">
     <thead>
             <tr>
