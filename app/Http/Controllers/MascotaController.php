@@ -69,12 +69,22 @@ class MascotaController extends Controller
         return view('mascota.edit', compact('mascota'));
     }
 
-    public function update(MascotaRequest $request, Mascota $mascota): RedirectResponse
+    public function update(Request $request, $id)
     {
-        $mascota->update($request->validated());
+    $request->validate([ // Valida los datos del formulario
+        'nombre' => 'required',
+        'edad' => 'nullable|integer|min:0', // 'nullable' si no es obligatorio
+        'raza' => 'nullable',
+        'sexo' => 'required|in:macho,hembra', // 'in' para asegurar valores válidos
+        'color' => 'nullable',
+        'info_medica' => 'nullable',
+    ]);
 
-        return redirect()->route('mascotas.index') // Corregido: Redirige al index
-            ->with('success', 'Mascota actualizada exitosamente.');
+    $mascota = Mascota::findOrFail($id); // Encuentra la mascota a actualizar
+    $mascota->update($request->all());  //  Actualiza todos los campos de golpe (asegúrate de que el modelo tiene $fillable definido)
+
+    return redirect()->route('mascotas.index') // Redirige a la lista de mascotas
+                     ->with('success', 'Mascota actualizada correctamente');
     }
 
     public function destroy($id): RedirectResponse
