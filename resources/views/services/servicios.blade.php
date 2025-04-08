@@ -1,5 +1,19 @@
 @extends('layouts.app')
 <link href="{{ asset('css/servicios/servicios.css') }}" rel="stylesheet" />
+<style>
+     /* cambio de color a blanco */
+    #servicios h2,
+    #servicios .service h3,
+    #servicios .service p,
+    #contacto h2,
+    #contacto p,
+    #contacto label {
+        color: white;
+    }
+
+   
+</style>
+
 @section('content')
 <main>
         <section id="servicios">
