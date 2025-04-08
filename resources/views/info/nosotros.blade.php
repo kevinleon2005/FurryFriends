@@ -1,4 +1,5 @@
 @extends('layouts.app')
+<link href="{{ asset('css/nosotros/nosotros.css') }}" rel="stylesheet" />
 @section('content')
 <main>
         <section class="about-section">

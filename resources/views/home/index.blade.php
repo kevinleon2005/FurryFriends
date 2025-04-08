@@ -1,4 +1,5 @@
 @extends ('layouts.app')
+<link href="{{ asset('css/index/styles.css') }}" rel="stylesheet" />
 @section ('content')
     <div class="body_area">
     <!-- Sección de Inicio -->
