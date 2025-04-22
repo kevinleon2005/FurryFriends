@@ -28,7 +28,7 @@ class RegisterController extends Controller
             'numero_documento' => ['required', 'integer', 'unique:users,numero_documento'],
             'direccion' => ['required', 'string', 'max:255'], // <-- Aquí faltaba una coma
             'email' => ['required', 'email', 'unique:users,email'],
-            'password' => ['required', 'string', 'min:6', 'confirmed'],
+            'password' => ['required', 'string', 'min:6', 'max:12', 'confirmed'],
             'role' => ['required', 'string', 'in:admin,paseador,propietario'],
             'terms' => ['accepted'],
         ]);

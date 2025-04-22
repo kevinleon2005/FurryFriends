@@ -53,6 +53,13 @@ return [
     */
 
     'url' => env('APP_URL', 'http://localhost'),
+    // 'providers' => [
+    // Barryvdh\DomPDF\ServiceProvider::class,
+    // ],
+
+    // 'aliases' => [
+    //     'PDF' => Barryvdh\DomPDF\Facade::class,
+    // ],
 
     /*
     |--------------------------------------------------------------------------
@@ -104,6 +111,10 @@ return [
             explode(',', env('APP_PREVIOUS_KEYS', ''))
         ),
     ],
+
+    // 'aliases' => [
+    //     'Pdf' => Barryvdh\DomPDF\Facade\Pdf::class,
+    // ],
 
     /*
     |--------------------------------------------------------------------------

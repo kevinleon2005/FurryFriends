@@ -212,6 +212,13 @@ a:focus {
 }
 /*end header section*/
 
+/* Botones section */
+.btns {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+/* End botones section */
 
 /* Sección de inicio */
 .section_inicio{

@@ -10,6 +10,7 @@
                 <th>Raza</th>
                 <th>Sexo</th>
                 <th>Propietario</th>
+                <th>Número de Documento</th>
                 <th>Correo</th>
                 <th>Teléfono</th>
                 <th>Acciones</th>
@@ -21,17 +22,18 @@
                 <td>{{ $mascota->nombre }}</td>
                 <td>{{ $mascota->raza }}</td>
                 <td>{{ $mascota->sexo }}</td>
-                <td>{{ $mascota->user->nombre ?? 'No disponible' }}</td>
+                <td>{{ $mascota->user->nombre . ' ' . $mascota->user->apellido ?? 'No disponible' }}</td>
+                <td>{{ $mascota->user->numero_documento ?? 'No disponible' }}</td>
                 <td>{{ $mascota->user->email ?? 'No disponible' }}</td>
                 <td>{{ $mascota->user->telefono ?? 'No disponible' }}</td>
                 <td>
-                    <a href="{{ route('admin.mascotas.show', $mascota->id) }}" class="btn btn-sm btn-primary">Ver Información Completa</a>
+                    <a href="{{ route('admin.mascotas.show', $mascota->id) }}" class="btn btn-sm btn-primary">Más Información</a>
                 </td>
             </tr>
             @endforeach
         </tbody>
     </table>
-    <a href="{{ route('dashboardAdm') }}" class="btn btn-secondary mt-3">Volver</a>
+    <a href="{{ route('dashboardAdm') }}" class="boton_reservar">Volver</a>
 </div>
 </main>
 @endsection

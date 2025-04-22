@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('content')
     <div class="container-fluid">
+        <h2 class="titulos">Detalles de los usuarios registrados</h2>
         <div class="row">
             <div class="col-sm-12">
                 <div class="card">
@@ -73,11 +74,11 @@
 
                                             <td>
                                                 <form action="{{ route('users.destroy', $user->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('users.show', $user->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Show') }}</a>
-                                                    <!-- <a class="btn btn-sm btn-success" href="{{ route('users.edit', $user->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Edit') }}</a>
-                                                    @csrf -->
-                                                    @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm" onclick="event.preventDefault(); confirm('Are you sure to delete?') ? this.closest('form').submit() : false;"><i class="fa fa-fw fa-trash"></i> {{ __('Delete') }}</button>
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('users.show', $user->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Ver información') }}</a>
+                                                    <!-- <a class="btn btn-sm btn-success" href="{{ route('users.edit', $user->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Edit') }}</a> -->
+                                                    @csrf
+                                                    <!-- @method('DELETE')
+                                                    <button type="submit" class="btn btn-danger btn-sm" onclick="event.preventDefault(); confirm('Are you sure to delete?') ? this.closest('form').submit() : false;"><i class="fa fa-fw fa-trash"></i> {{ __('Delete') }}</button> -->
                                                 </form>
                                             </td>
                                         </tr>
@@ -90,7 +91,8 @@
                 {!! $users->appends(['search' => request('search')])->links() !!}
             </div>
         </div>
-        <a href="{{ route('dashboardAdm') }}" class="btn btn-secondary mt-3">Volver</a>
+        <br>
+        <a href="{{ route('dashboardAdm') }}" class="boton_reservar">Volver</a>
     </div>
 @endsection
 @section('footer')

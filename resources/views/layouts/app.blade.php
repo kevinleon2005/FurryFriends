@@ -78,6 +78,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('dashboardPro') }}">Mi Dashboard</a>
                         <a class="nav-link" href="{{ route('mascotas.create') }}">Registrar mi Mascota</a>
+                        <a class="nav-link" href="{{ route('mascotas.create') }}">Mi Perfil</a>
                     </li>
                 @elseif (Auth::user()->role === 'paseador')
                     <li class="nav-item">

@@ -12,12 +12,12 @@
         <br>
         <thead class="thead">
             <tr>
-                <th>Nombre</th>
-                <th>Raza</th>
-                <th>Sexo</th>
-                <th>Edad</th>
-                <th>Color</th>
-                <th>Información Médica</th>
+                <th>Nombre:</th>
+                <th>Raza:</th>
+                <th>Sexo:</th>
+                <th>Edad:</th>
+                <th>Color:</th>
+                <th>Información Médica:</th>
             </tr>
         </thead>
         <tbody>

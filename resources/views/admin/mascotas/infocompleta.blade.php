@@ -1,8 +1,11 @@
 @extends('layouts.app')
 @section('content')
 <div class="container mt-5">
-    <h2>Detalles de la Mascota: {{ $mascota->nombre }}</h2>
-
+    <div class="btns">
+        <h2>Detalles de la Mascota: {{ $mascota->nombre }}</h2>
+        <a href="{{ route('descargarMascotas.pdf') }}" class="boton_reservar" download="Reporte">Descargar PDF</a>
+    </div>
+    <br>
     <div class="card mb-4">
         <div class="card-body">
             <p><strong>Nombre:</strong> {{ $mascota->nombre }}</p>
@@ -17,12 +20,17 @@
     <h4>Información del Propietario</h4>
     <div class="card">
         <div class="card-body">
-            <p><strong>Nombre:</strong> {{ $mascota->user->nombre ?? 'No disponible' }}</p>
+            <p><strong>Nombre:</strong> {{ $mascota->user->nombre . ' ' . $mascota->user->apellido ?? 'No disponible' }}</p>
+            <p><strong>Número de Documento:</strong> {{ $mascota->user->numero_documento ?? 'No disponible' }}</p>
             <p><strong>Email:</strong> {{ $mascota->user->email ?? 'No disponible' }}</p>
             <p><strong>Teléfono:</strong> {{ $mascota->user->telefono ?? 'No disponible' }}</p>
+            <p><strong>Dirección:</strong> {{ $mascota->user->direccion ?? 'No disponible' }}</p>
         </div>
     </div>
-
-    <a href="{{ route('admin.mascotas.index') }}" class="btn btn-secondary mt-3">Volver</a>
+    <br>
+    <div class="btns">
+        <a href="{{ route('admin.mascotas.index') }}" class="boton_reservar">Volver</a>
+    </div>
+    
 </div>
 @endsection

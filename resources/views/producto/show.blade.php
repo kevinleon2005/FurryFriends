@@ -1,20 +1,17 @@
 @extends('layouts.app')
-
-@section('template_title')
-    {{ $producto->name ?? __('Show') . " " . __('Producto') }}
-@endsection
-
 @section('content')
     <section class="content container-fluid">
+        <div class="btns">
+            <h2>Detalles del producto: {{ $producto->nombre}}</h2>
+            <a href="{{ route('descargarProductos.pdf', ['id' => $producto->id]) }}" class="boton_reservar" download="Reporte">Descargar PDF</a>
+        </div>
+        <br>
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header" style="display: flex; justify-content: space-between; align-items: center;">
                         <div class="float-left">
-                            <span class="card-title">{{ __('Show') }} Producto</span>
-                        </div>
-                        <div class="float-right">
-                            <a class="btn btn-primary btn-sm" href="{{ route('productos.index') }}"> {{ __('Back') }}</a>
+                            <span class="card-title">{{ __($producto->nombre) }}</span>
                         </div>
                     </div>
 
@@ -25,7 +22,7 @@
                                     {{ $producto->nombre }}
                                 </div>
                                 <div class="form-group mb-2 mb20">
-                                    <strong>Descripcion:</strong>
+                                    <strong>Descripción:</strong>
                                     {{ $producto->descripcion }}
                                 </div>
                                 <div class="form-group mb-2 mb20">
@@ -45,7 +42,8 @@
                 </div>
             </div>
         </div>
-        <a href="{{ route('productos.index') }}" class="btn btn-secondary mt-3">Volver</a>
+        <br>
+        <a href="{{ route('productos.index') }}" class="boton_reservar">Volver</a>
     </section>
 @endsection
 @section('footer')

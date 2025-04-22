@@ -19,6 +19,7 @@ use App\Http\Controllers\PaseadorController;
 use App\Http\Controllers\Auth\GoogleController;
 use App\Http\Controllers\MascotaController;
 use App\Http\Controllers\MascotasController;
+use App\Http\Controllers\PdfController;
 
 Route::get('/', function () {return view('home.index');})->name('home');
 Route::get('/inicio/FurryFriendsPages.index', [HomeController::class, 'index'])->name('inicio');
@@ -71,3 +72,8 @@ Route::get('/admin/mascotas/{id}', [MascotaController::class, 'adminShow'])->nam
 //Fin rutas para el registro de mascotas
 
 //Rutas para las crud de mascotas en admin
+// Ruta para generar pdf
+Route::get('/reporteMascotas/pdf', [PdfController::class, 'generarPDFMascotas'])->name('descargarMascotas.pdf');
+Route::get('/descargar-usuario-pdf/{id}', [PdfController::class, 'generarPDFUsuarios'])->name('descargarUsuarios.pdf');
+Route::get('/descargar-producto-pdf/{id}', [PdfController::class, 'generarPDFProductos'])->name('descargarProductos.pdf');
+// Fin de ruta para generar pdf

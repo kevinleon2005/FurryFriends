@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('content')
     <div class="container-fluid">
+        <h2 class="titulos">Detalles de los prodcutos inventariados</h2>
         <div class="row">
             <div class="col-sm-12">
                 <div class="card">
@@ -17,7 +18,7 @@
                             </span>
                             <div class="float-right">
                                 <a href="{{ route('productos.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
-                                  {{ __('Create New') }}
+                                  {{ __('Ingresar nuevo producto') }}
                                 </a>
                             </div>
                         </div>
@@ -34,7 +35,7 @@
                                 <thead class="thead">
                                     <tr>
                                         <th>Nombre</th>
-                                        <th>Descripcion</th>
+                                        <th>Descripción</th>
                                         <th>Precio</th>
                                         <th>Cantidad Stock</th>
                                         <th>Marca</th>
@@ -51,11 +52,11 @@
                                             <td>{{ $producto->marca }}</td>
                                             <td>
                                                 <form action="{{ route('productos.destroy', $producto->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('productos.show', $producto->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Show') }}</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('productos.edit', $producto->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Edit') }}</a>
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('productos.show', $producto->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Ver') }}</a>
+                                                    <a class="btn btn-sm btn-success" href="{{ route('productos.edit', $producto->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Editar') }}</a>
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm" onclick="event.preventDefault(); confirm('¿Estás seguro de que deseas eliminar este producto?') ? this.closest('form').submit() : false;"><i class="fa fa-fw fa-trash"></i> {{ __('Delete') }}</button>
+                                                    <button type="submit" class="btn btn-danger btn-sm" onclick="event.preventDefault(); confirm('¿Estás seguro de que deseas eliminar este producto?') ? this.closest('form').submit() : false;"><i class="fa fa-fw fa-trash"></i> {{ __('Eliminar') }}</button>
                                                 </form>
                                             </td>
                                         </tr>
@@ -68,7 +69,8 @@
                 {!! $productos->withQueryString()->links() !!}
             </div>
         </div>
-        <a href="{{ route('dashboardAdm') }}" class="btn btn-secondary mt-3">Volver</a>
+        <br>
+        <a href="{{ route('dashboardAdm') }}" class="boton_reservar">Volver</a>
     </div>
 @endsection
 @section('footer')
